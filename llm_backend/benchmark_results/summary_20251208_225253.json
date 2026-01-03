@@ -1,0 +1,79 @@
+{
+  "total_tests": 40,
+  "successful": 24,
+  "failed": 16,
+  "success_rate": 60.0,
+  "validated": 18,
+  "validation_rate": 45.0,
+  "avg_time": 97.15823238094647,
+  "median_time": 94.84920537471771,
+  "min_time": 60.40278506278992,
+  "max_time": 197.9846818447113,
+  "std_time": 26.774970767301536,
+  "by_category": {
+    "simple": {
+      "total": 5,
+      "successful": 5,
+      "success_rate": 100.0,
+      "validated": 5,
+      "validation_rate": 100.0,
+      "avg_time": 88.00489068031311
+    },
+    "medium": {
+      "total": 5,
+      "successful": 3,
+      "success_rate": 60.0,
+      "validated": 1,
+      "validation_rate": 20.0,
+      "avg_time": 96.5895779132843
+    },
+    "complex": {
+      "total": 5,
+      "successful": 0,
+      "success_rate": 0.0,
+      "validated": 0,
+      "validation_rate": 0.0,
+      "avg_time": 0
+    },
+    "geographic": {
+      "total": 5,
+      "successful": 3,
+      "success_rate": 60.0,
+      "validated": 2,
+      "validation_rate": 40.0,
+      "avg_time": 130.78575118382773
+    },
+    "time_based": {
+      "total": 5,
+      "successful": 5,
+      "success_rate": 100.0,
+      "validated": 3,
+      "validation_rate": 60.0,
+      "avg_time": 100.87363572120667
+    },
+    "application": {
+      "total": 5,
+      "successful": 4,
+      "success_rate": 80.0,
+      "validated": 4,
+      "validation_rate": 80.0,
+      "avg_time": 82.42020446062088
+    },
+    "ddos": {
+      "total": 5,
+      "successful": 3,
+      "success_rate": 60.0,
+      "validated": 2,
+      "validation_rate": 40.0,
+      "avg_time": 98.56443937619527
+    },
+    "edge_cases": {
+      "total": 5,
+      "successful": 1,
+      "success_rate": 20.0,
+      "validated": 1,
+      "validation_rate": 20.0,
+      "avg_time": 79.90482187271118
+    }
+  }
+}

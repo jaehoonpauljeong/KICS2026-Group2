@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i2nsf-cfi-policy xmlns="urn:ietf:params:xml:ns:yang:ietf-i2nsf-cons-facing-interface"
+                  xmlns:i2nsfcfi="urn:ietf:params:xml:ns:yang:ietf-i2nsf-cons-facing-interface">
+  <name>policy_block_traffic_from_venezuela</name>
+  <language>en-US</language>
+  <priority-usage>i2nsfcfi:priority-by-order</priority-usage>
+  <resolution-strategy>i2nsfcfi:fmr</resolution-strategy>
+
+  <rules>
+    <name>block_from_venezuela_any_destination</name>
+    <condition>
+      <context>
+        <geographic-location>
+          <source>
+            <country>VE</country>
+          </source>
+        </geographic-location>
+      </context>
+    </condition>
+    <action>
+      <primary-action>
+        <action>drop</action>
+      </primary-action>
+    </action>
+  </rules>
+</i2nsf-cfi-policy>

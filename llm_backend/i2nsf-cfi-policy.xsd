@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="urn:ietf:params:xml:ns:yang:ietf-i2nsf-cons-facing-interface"
+    xmlns:tns="urn:ietf:params:xml:ns:yang:ietf-i2nsf-cons-facing-interface"
+    elementFormDefault="qualified">
+
+  <!-- Root policy element -->
+  <xs:element name="i2nsf-cfi-policy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string"/>
+        <xs:element name="language" type="xs:string" minOccurs="0" default="en-US"/>
+        <xs:element name="priority-usage" type="tns:priorityUsageType" minOccurs="0" default="priority-by-order"/>
+        <xs:element name="resolution-strategy" type="tns:resolutionStrategyType" minOccurs="0" default="fmr"/>
+        <xs:element name="rules" type="tns:RuleType" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Priority usage -->
+  <xs:simpleType name="priorityUsageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="priority-by-order"/>
+      <xs:enumeration value="priority-by-number"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Resolution strategy -->
+  <xs:simpleType name="resolutionStrategyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="fmr"/>
+      <xs:enumeration value="lmr"/>
+      <xs:enumeration value="pmre"/>
+      <xs:enumeration value="pmrn"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Rule -->
+  <xs:complexType name="RuleType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="priority" type="tns:priorityType" minOccurs="0"/>
+      <xs:element name="event" type="tns:EventType" minOccurs="0"/>
+      <xs:element name="condition" type="tns:ConditionType" minOccurs="0"/>
+      <xs:element name="action" type="tns:ActionType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Priority: 0 to 255 -->
+  <xs:simpleType name="priorityType">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Event -->
+  <xs:complexType name="EventType">
+    <xs:sequence>
+      <xs:element name="system-event" type="tns:SystemEventType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="system-alarm" type="tns:SystemAlarmType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- =============== i2nsfmi-based enumerations =============== -->
+
+  <!-- System Event Types (i2nsfmi identities) -->
+  <xs:simpleType name="SystemEventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="i2nsfmi:config-change"/>
+      <xs:enumeration value="i2nsfmi:system-start"/>
+      <xs:enumeration value="i2nsfmi:system-shutdown"/>
+      <xs:enumeration value="i2nsfmi:nsf-registration"/>
+      <xs:enumeration value="i2nsfmi:nsf-deregistration"/>
+      <!-- Add more as needed -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- System Alarm Types -->
+  <xs:simpleType name="SystemAlarmType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="i2nsfmi:hardware-failure"/>
+      <xs:enumeration value="i2nsfmi:resource-exhaustion"/>
+      <xs:enumeration value="i2nsfmi:security-breach"/>
+      <!-- Extend as needed -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Transport Layer Protocols -->
+  <xs:simpleType name="TransportProtocolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="i2nsfmi:tcp"/>
+      <xs:enumeration value="i2nsfmi:udp"/>
+      <xs:enumeration value="i2nsfmi:icmp"/>
+      <xs:enumeration value="i2nsfmi:sctp"/>
+      <xs:enumeration value="i2nsfmi:ipv4"/>
+      <xs:enumeration value="i2nsfmi:ipv6"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Application Protocols -->
+  <xs:simpleType name="ApplicationProtocolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="i2nsfmi:http"/>
+      <xs:enumeration value="i2nsfmi:https"/>
+      <xs:enumeration value="i2nsfmi:ftp"/>
+      <xs:enumeration value="i2nsfmi:dns"/>
+      <xs:enumeration value="i2nsfmi:smtp"/>
+      <xs:enumeration value="i2nsfmi:ssh"/>
+      <!-- Add more as needed -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ================== Condition Types ================== -->
+
+  <xs:complexType name="ConditionType">
+    <xs:sequence>
+      <xs:element name="firewall" type="tns:FirewallCondition" minOccurs="0"/>
+      <xs:element name="ddos" type="tns:DdosCondition" minOccurs="0"/>
+      <xs:element name="anti-virus" type="tns:AntiVirusCondition" minOccurs="0"/>
+      <xs:element name="payload" type="tns:PayloadCondition" minOccurs="0"/>
+      <xs:element name="url-category" type="tns:UrlCategoryCondition" minOccurs="0"/>
+      <xs:element name="voice" type="tns:VoiceCondition" minOccurs="0"/>
+      <xs:element name="context" type="tns:ContextCondition" minOccurs="0"/>
+      <xs:element name="threat-feed" type="tns:ThreatFeedCondition" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FirewallCondition">
+    <xs:sequence>
+      <xs:element name="source" type="xs:string" minOccurs="0"/>
+      <xs:element name="destination" type="xs:string" minOccurs="0"/>
+      <xs:element name="transport-layer-protocol" type="tns:TransportProtocolType" minOccurs="0"/>
+      <xs:element name="range-port-number" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="start" type="xs:unsignedShort"/>
+            <xs:element name="end" type="xs:unsignedShort"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="icmp" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DdosCondition">
+    <xs:sequence>
+      <xs:element name="rate-limit">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="packet-rate-threshold" type="xs:unsignedInt" minOccurs="0"/>
+            <xs:element name="byte-rate-threshold" type="xs:unsignedLong" minOccurs="0"/>
+            <xs:element name="flow-rate-threshold" type="xs:unsignedInt" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AntiVirusCondition">
+    <xs:sequence>
+      <xs:element name="profile" type="xs:string"/>
+      <xs:element name="exception-files" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PayloadCondition">
+    <xs:sequence>
+      <xs:element name="content" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UrlCategoryCondition">
+    <xs:sequence>
+      <xs:element name="url-name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="VoiceCondition">
+    <xs:sequence>
+      <xs:element name="source-id" type="xs:string" minOccurs="0"/>
+      <xs:element name="destination-id" type="xs:string" minOccurs="0"/>
+      <xs:element name="user-agent" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ContextCondition">
+    <xs:sequence>
+      <xs:element name="time" type="tns:TimeContext" minOccurs="0"/>
+      <xs:element name="application" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="protocol" type="tns:ApplicationProtocolType" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="device-type" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="device" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="users" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="user" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" type="xs:string"/>
+                  <xs:element name="name" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="group" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" type="xs:string"/>
+                  <xs:element name="name" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="geographic-location" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="source" type="tns:GeoLocation" minOccurs="0"/>
+            <xs:element name="destination" type="tns:GeoLocation" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TimeContext">
+    <xs:sequence>
+      <xs:element name="start-date-time" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="end-date-time" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="period" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="start-time" type="xs:time"/>
+            <xs:element name="end-time" type="xs:time"/>
+            <xs:element name="day" type="tns:DayOfWeek" minOccurs="1" maxOccurs="7"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="frequency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="DayOfWeek">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="monday"/>
+      <xs:enumeration value="tuesday"/>
+      <xs:enumeration value="wednesday"/>
+      <xs:enumeration value="thursday"/>
+      <xs:enumeration value="friday"/>
+      <xs:enumeration value="saturday"/>
+      <xs:enumeration value="sunday"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="GeoLocation">
+    <xs:sequence>
+      <xs:element name="country" type="xs:string" minOccurs="0"/>
+      <xs:element name="region" type="xs:string" minOccurs="0"/>
+      <xs:element name="city" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ThreatFeedCondition">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ================== Action Types ================== -->
+
+  <xs:complexType name="ActionType">
+    <xs:sequence>
+      <xs:element name="primary-action" type="tns:PrimaryAction"/>
+      <xs:element name="secondary-action" type="tns:SecondaryAction" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PrimaryAction">
+    <xs:sequence>
+      <xs:element name="action" type="tns:PrimaryActionType"/>
+      <xs:element name="limit" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="PrimaryActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pass"/>
+      <xs:enumeration value="drop"/>
+      <xs:enumeration value="reject"/>
+      <xs:enumeration value="rate-limit"/>
+      <xs:enumeration value="mirror"/>
+      <xs:enumeration value="invoke-signaling"/>
+      <xs:enumeration value="tunnel-encapsulation"/>
+      <xs:enumeration value="forwarding"/>
+      <xs:enumeration value="transformation"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="SecondaryAction">
+    <xs:sequence>
+      <xs:element name="log-action" type="tns:LogActionType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="LogActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rule-log"/>
+      <xs:enumeration value="session-log"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

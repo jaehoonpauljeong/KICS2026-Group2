@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i2nsf-cfi-policy
+    xmlns="urn:ietf:params:xml:ns:yang:ietf-i2nsf-cons-facing-interface">
+    <name>drop_0_0_0_0_policy</name>
+    <language>en-US</language>
+    <priority-usage>priority-by-order</priority-usage>
+    <resolution-strategy>fmr</resolution-strategy>
+    <rules>
+        <name>drop_all_packets_from_0_0_0_0</name>
+        <condition>
+            <firewall>
+                <source>ip-0-0-0-0</source>
+            </firewall>
+        </condition>
+        <action>
+            <primary-action>
+                <action>drop</action>
+            </primary-action>
+        </action>
+    </rules>
+</i2nsf-cfi-policy>

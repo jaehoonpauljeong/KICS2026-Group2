@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<i2nsf-cfi-policy
+    xmlns="urn:ietf:params:xml:ns:yang:ietf-i2nsf-cons-facing-interface"
+    xmlns:i2nsfmi="urn:ietf:params:xml:ns:yang:ietf-i2nsf-monitoring-interface">
+    <name>allow_https_only_policy</name>
+    <language>en-US</language>
+    <priority-usage>priority-by-order</priority-usage>
+    <resolution-strategy>fmr</resolution-strategy>
+    <rules>
+        <name>allow_https_only</name>
+        <condition>
+            <firewall>
+                <transport-layer-protocol>i2nsfmi:tcp</transport-layer-protocol>
+                <range-port-number>
+                    <start>443</start>
+                    <end>443</end>
+                </range-port-number>
+            </firewall>
+            <context>
+                <application>
+                    <protocol>i2nsfmi:https</protocol>
+                </application>
+            </context>
+        </condition>
+        <action>
+            <primary-action>
+                <action>pass</action>
+            </primary-action>
+        </action>
+    </rules>
+</i2nsf-cfi-policy>

@@ -1,0 +1,402 @@
+[
+  {
+    "test_case": "Block all traffic from China",
+    "category": "simple",
+    "timestamp": "2025-12-08T21:41:20.780691",
+    "success": true,
+    "time_taken": 100.73699879646301,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 780
+  },
+  {
+    "test_case": "Allow HTTP traffic",
+    "category": "simple",
+    "timestamp": "2025-12-08T21:43:02.556572",
+    "success": true,
+    "time_taken": 99.28621482849121,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 819
+  },
+  {
+    "test_case": "Drop all ICMP packets",
+    "category": "simple",
+    "timestamp": "2025-12-08T21:44:42.880532",
+    "success": true,
+    "time_taken": 64.03214597702026,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 769
+  },
+  {
+    "test_case": "Block port 22",
+    "category": "simple",
+    "timestamp": "2025-12-08T21:45:47.946914",
+    "success": true,
+    "time_taken": 65.03231477737427,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 807
+  },
+  {
+    "test_case": "Allow traffic to 192.168.1.1",
+    "category": "simple",
+    "timestamp": "2025-12-08T21:46:54.017579",
+    "success": true,
+    "time_taken": 110.9367790222168,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 687
+  },
+  {
+    "test_case": "Block SNS access from Buenos Aires to Seoul during office hours",
+    "category": "medium",
+    "timestamp": "2025-12-08T21:48:45.989158",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Mitigate DDoS attacks on web servers with threshold 1000 packets per second",
+    "category": "medium",
+    "timestamp": "2025-12-08T21:50:47.012236",
+    "success": true,
+    "time_taken": 95.81008982658386,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 875
+  },
+  {
+    "test_case": "Block malicious VoIP packets coming to the company",
+    "category": "medium",
+    "timestamp": "2025-12-08T21:52:23.856241",
+    "success": true,
+    "time_taken": 88.08952593803406,
+    "validation_passed": false,
+    "error": null,
+    "xml_length": 706
+  },
+  {
+    "test_case": "Allow HTTP and HTTPS traffic from trusted network 10.0.0.0/8 during weekdays",
+    "category": "medium",
+    "timestamp": "2025-12-08T21:53:52.978481",
+    "success": true,
+    "time_taken": 105.86911797523499,
+    "validation_passed": false,
+    "error": null,
+    "xml_length": 1967
+  },
+  {
+    "test_case": "Block all traffic from Russia and China to US servers between 9 AM and 5 PM",
+    "category": "medium",
+    "timestamp": "2025-12-08T21:55:39.884629",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Create a policy that blocks social media access from Mexico City and Buenos Aires to corporate servers in Seoul and Tokyo during business hours (9 AM to 6 PM) on weekdays, but allows access on weekends",
+    "category": "complex",
+    "timestamp": "2025-12-08T21:57:40.904486",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Implement DDoS mitigation for web servers in New York with rate limiting of 5000 packets per second, mirror suspicious traffic to monitoring server, and block sources that exceed threshold for more than 30 seconds",
+    "category": "complex",
+    "timestamp": "2025-12-08T21:59:41.927733",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Block VoIP calls from known malicious SIP addresses, allow internal company VoIP between 192.168.0.0/16 networks, rate limit external VoIP to 100 concurrent calls, and log all rejected attempts",
+    "category": "complex",
+    "timestamp": "2025-12-08T22:01:42.949942",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Create multi-layer security policy that blocks malware signatures, filters URLs from blacklist, applies geographic restrictions for traffic from high-risk countries, and implements time-based access control for remote workers",
+    "category": "complex",
+    "timestamp": "2025-12-08T22:03:43.972978",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Establish policy for remote work: allow VPN access from approved countries (US, Canada, UK, Germany, Japan) during extended hours (6 AM to 10 PM), require MFA for access outside business hours, block all other remote access attempts, and log all connection attempts",
+    "category": "complex",
+    "timestamp": "2025-12-08T22:05:44.995228",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Block all traffic from North Korea",
+    "category": "geographic",
+    "timestamp": "2025-12-08T22:07:46.018520",
+    "success": true,
+    "time_taken": 197.9846818447113,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 786
+  },
+  {
+    "test_case": "Allow traffic only from United States and Canada",
+    "category": "geographic",
+    "timestamp": "2025-12-08T22:11:05.034468",
+    "success": true,
+    "time_taken": 108.35903787612915,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 1204
+  },
+  {
+    "test_case": "Block traffic from China, Russia, and Iran to government servers",
+    "category": "geographic",
+    "timestamp": "2025-12-08T22:12:54.431350",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Create policy that allows European traffic but blocks Asian traffic during US night time",
+    "category": "geographic",
+    "timestamp": "2025-12-08T22:14:55.453602",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Block traffic from high-risk countries: Syria, Iran, North Korea, and Russia",
+    "category": "geographic",
+    "timestamp": "2025-12-08T22:16:56.477632",
+    "success": true,
+    "time_taken": 86.0135338306427,
+    "validation_passed": false,
+    "error": null,
+    "xml_length": 1776
+  },
+  {
+    "test_case": "Block social media during work hours Monday to Friday",
+    "category": "time_based",
+    "timestamp": "2025-12-08T22:18:23.532729",
+    "success": true,
+    "time_taken": 80.89703392982483,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 1208
+  },
+  {
+    "test_case": "Allow remote access only between 6 AM and 11 PM",
+    "category": "time_based",
+    "timestamp": "2025-12-08T22:19:45.470073",
+    "success": true,
+    "time_taken": 93.28205013275146,
+    "validation_passed": false,
+    "error": null,
+    "xml_length": 1483
+  },
+  {
+    "test_case": "Block gaming websites during weekdays but allow on weekends",
+    "category": "time_based",
+    "timestamp": "2025-12-08T22:21:19.792364",
+    "success": true,
+    "time_taken": 92.75940895080566,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 1574
+  },
+  {
+    "test_case": "Rate limit non-essential traffic during peak hours 9 AM to 5 PM",
+    "category": "time_based",
+    "timestamp": "2025-12-08T22:22:53.592930",
+    "success": true,
+    "time_taken": 118.86920380592346,
+    "validation_passed": false,
+    "error": null,
+    "xml_length": 1126
+  },
+  {
+    "test_case": "Block all external access outside business hours except for specific IPs",
+    "category": "time_based",
+    "timestamp": "2025-12-08T22:24:53.503605",
+    "success": true,
+    "time_taken": 118.5604817867279,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 1922
+  },
+  {
+    "test_case": "Block all social media applications",
+    "category": "application",
+    "timestamp": "2025-12-08T22:26:53.104994",
+    "success": true,
+    "time_taken": 60.40278506278992,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 688
+  },
+  {
+    "test_case": "Allow only HTTP, HTTPS, and DNS traffic",
+    "category": "application",
+    "timestamp": "2025-12-08T22:27:54.546803",
+    "success": true,
+    "time_taken": 93.88832092285156,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 2659
+  },
+  {
+    "test_case": "Block peer-to-peer file sharing applications",
+    "category": "application",
+    "timestamp": "2025-12-08T22:29:29.477262",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Allow Microsoft Teams and Zoom but block Skype",
+    "category": "application",
+    "timestamp": "2025-12-08T22:31:30.504981",
+    "success": true,
+    "time_taken": 97.6910982131958,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 1168
+  },
+  {
+    "test_case": "Block streaming services like Netflix, YouTube, and Spotify during work hours",
+    "category": "application",
+    "timestamp": "2025-12-08T22:33:09.235840",
+    "success": true,
+    "time_taken": 77.69861364364624,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 1020
+  },
+  {
+    "test_case": "Mitigate SYN flood attacks with threshold 10000 packets per second",
+    "category": "ddos",
+    "timestamp": "2025-12-08T22:34:27.973273",
+    "success": true,
+    "time_taken": 110.67389011383057,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 868
+  },
+  {
+    "test_case": "Block UDP flood attacks exceeding 50000 packets per second",
+    "category": "ddos",
+    "timestamp": "2025-12-08T22:36:19.681952",
+    "success": true,
+    "time_taken": 72.49725317955017,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 971
+  },
+  {
+    "test_case": "Rate limit ICMP traffic to 1000 packets per second",
+    "category": "ddos",
+    "timestamp": "2025-12-08T22:37:33.220042",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Implement progressive rate limiting: 5000 pps normal, 10000 pps warning, block above",
+    "category": "ddos",
+    "timestamp": "2025-12-08T22:39:34.250749",
+    "success": true,
+    "time_taken": 112.52217483520508,
+    "validation_passed": false,
+    "error": null,
+    "xml_length": 1429
+  },
+  {
+    "test_case": "Create DDoS mitigation policy with dynamic thresholds based on baseline traffic patterns",
+    "category": "ddos",
+    "timestamp": "2025-12-08T22:41:27.806957",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Block everything",
+    "category": "edge_cases",
+    "timestamp": "2025-12-08T22:43:28.833562",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Allow everything",
+    "category": "edge_cases",
+    "timestamp": "2025-12-08T22:45:29.852479",
+    "success": true,
+    "time_taken": 79.90482187271118,
+    "validation_passed": true,
+    "error": null,
+    "xml_length": 549
+  },
+  {
+    "test_case": "Create policy with no time restrictions",
+    "category": "edge_cases",
+    "timestamp": "2025-12-08T22:46:50.798354",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Block traffic from 300 different countries",
+    "category": "edge_cases",
+    "timestamp": "2025-12-08T22:48:51.826402",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  },
+  {
+    "test_case": "Allow traffic on port 99999",
+    "category": "edge_cases",
+    "timestamp": "2025-12-08T22:50:52.851836",
+    "success": false,
+    "time_taken": 120,
+    "validation_passed": false,
+    "error": "Timeout (>120s)",
+    "xml_length": 0
+  }
+]

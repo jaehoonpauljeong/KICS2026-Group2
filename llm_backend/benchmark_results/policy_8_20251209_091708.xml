@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i2nsf-cfi-policy
+    xmlns="urn:ietf:params:xml:ns:yang:ietf-i2nsf-cons-facing-interface"
+    xmlns:i2nsfmi="urn:ietf:params:xml:ns:yang:ietf-i2nsf-monitoring-interface">
+  <name>drop_udp53_from_external</name>
+  <language>en-US</language>
+  <priority-usage>priority-by-order</priority-usage>
+  <resolution-strategy>fmr</resolution-strategy>
+  <rules>
+    <name>drop_udp_53_external</name>
+    <condition>
+      <firewall>
+        <source>external-sources</source>
+        <transport-layer-protocol>i2nsfmi:udp</transport-layer-protocol>
+        <range-port-number>
+          <start>53</start>
+          <end>53</end>
+        </range-port-number>
+      </firewall>
+    </condition>
+    <action>
+      <primary-action>
+        <action>drop</action>
+      </primary-action>
+    </action>
+  </rules>
+</i2nsf-cfi-policy>
